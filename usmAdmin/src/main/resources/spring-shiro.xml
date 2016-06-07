@@ -1,0 +1,49 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+	
+	<context:component-scan base-package="com.ums.umsAdmin.common.security"></context:component-scan>
+	<tx:annotation-driven transaction-manager="txManager" />
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">  
+        <property name="securityManager" ref="securityManager"/>  
+        <property name="loginUrl" value="https://cas.paxdata.com:8443/cas/login?service=https://015-pc.paxdata.com:8443/umsAdmin" />  
+        <property name="filters">  
+            <util:map>  
+                <entry key="casFilter" value-ref="casFilter"/>
+                <entry key="logoutFilter" value-ref="logoutFilter"/>    
+            </util:map>  
+        </property>   
+        <property name="filterChainDefinitions">  
+            <value>
+            	/public/** = anon
+            	/umsAdmin = casFilter	
+            	/logout = logoutFilter
+            </value>  
+        </property>  
+    </bean> 
+     <bean id="casFilter" class="com.ums.umsAdmin.common.security.UMSCasFilter">  
+        <property name="failureUrl" value="/error"/>  
+    </bean>
+    
+    <bean id="logoutFilter" class="org.apache.shiro.web.filter.authc.LogoutFilter">
+		<property name="redirectUrl" value="https://cas.paxdata.com:8443/cas/logout?service=https://015-pc.paxdata.com:8443/umsAdmin" />
+	</bean>
+    
+    <bean id="casRealm" class="com.ums.umsAdmin.common.security.UMSCasRealm"></bean>
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">      
+        <property name="realm" ref="casRealm"/>  
+        <property name="subjectFactory" ref="casSubjectFactory"/>  
+    </bean>  
+      
+    <bean id="casSubjectFactory" class="com.ums.umsAdmin.common.security.UMSCasSubjectFactory"/>  
+      
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+    
+</beans>

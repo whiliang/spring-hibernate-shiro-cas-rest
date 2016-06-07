@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+</head>
+<body>
+    <!-- 测试页面要实现的功能：用javascript处理rest请求，具体通过向服务端发送对应用户ID，角色ID，返回所有的权限信息-->
+    <p id="param1">admin</p>
+    <p id="param2">1</p>
+        <button id="showlist">显示列表</button>  
+<div id="content_body">
+       
+</div>
+  
+    <script type="text/javascript">
+         $(function(){       
+        	 $("#showlist").click(function(){ 
+        		//从页面动态获取参数
+        	 	  var param1=$("#param1").text();
+        		  var param2=$("#param2").text(); 
+        		  console.log(param1);
+        		  console.log(param2);
+        		  
+        		 $.ajax({
+        			 //参数动态拼接到url中，实现rest风格的请求，到指定的资源文件上，实现跨域访问
+            		 'url': 'https://user3-pc.paxdata.com:8443/umsRestService/umsAdmin/getRestfulPermissions/'+param1+'/'+param2,
+                     'type': 'GET',
+                     'dataType': 'JSON',                  
+                     'async':'true',                  
+                     'success':function(json){
+                    	 for(var i=0;i<json.length;i++){
+                    		 var dataJson=json[i];
+                    		 console.log(dataJson);
+                    		 $("#content_body").append('<span>'+$.trim(dataJson)+'</span>'); 
+                    	 }
+                    	          	              	 
+                     },
+                     'error':function(json){
+                    	 
+                     }
+            	     
+            	 })/*end ajax  */
+        	 })
+        	 
+         })
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
