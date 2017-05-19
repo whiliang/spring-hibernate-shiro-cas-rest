@@ -1,37 +1,37 @@
 package com.yiwei.paxAdmin.unitTest;
 
 public class TestException {
-	static int quotient(int x, int y) throws MyException { // ¶¨Òå·½·¨Å×³öÒì³£
-		if (y < 0) { // ÅĞ¶Ï²ÎÊıÊÇ·ñĞ¡ÓÚ0
-			throw new MyException("³ıÊı²»ÄÜÊÇ¸ºÊı"); // Òì³£ĞÅÏ¢
-		}
-		return x / y; // ·µ»ØÖµ
-	}
+    static int quotient(int x, int y) throws MyException { // å®šä¹‰æ–¹æ³•æŠ›å‡ºå¼‚å¸¸
+        if (y < 0) { // åˆ¤æ–­å‚æ•°æ˜¯å¦å°äº0
+            throw new MyException("é™¤æ•°ä¸èƒ½æ˜¯è´Ÿæ•°"); // å¼‚å¸¸ä¿¡æ¯
+        }
+        return x / y; // è¿”å›å€¼
+    }
 
-	public static void main(String args[]) { // Ö÷·½·¨
-		int a = 3;
-		int b = -1;
-		try { // tryÓï¾ä°üº¬¿ÉÄÜ·¢ÉúÒì³£µÄÓï¾ä
-			int result = quotient(a, b); // µ÷ÓÃ·½·¨quotient()
-		} catch (MyException e) { // ´¦Àí×Ô¶¨ÒåÒì³£
-			System.out.println(e.getMessage()); // Êä³öÒì³£ĞÅÏ¢
-		} catch (ArithmeticException e) { // ´¦ÀíArithmeticExceptionÒì³£
-			System.out.println("³ıÊı²»ÄÜÎª0"); // Êä³öÌáÊ¾ĞÅÏ¢
-		} catch (Exception e) { // ´¦ÀíÆäËûÒì³£
-			System.out.println("³ÌĞò·¢ÉúÁËÆäËûµÄÒì³£"); // Êä³öÌáÊ¾ĞÅÏ¢
-		}
-	}
+    public static void main(String args[]) { // ä¸»æ–¹æ³•
+        int a = 3;
+        int b = -1;
+        try { // tryè¯­å¥åŒ…å«å¯èƒ½å‘ç”Ÿå¼‚å¸¸çš„è¯­å¥
+            int result = quotient(a, b); // è°ƒç”¨æ–¹æ³•quotient()
+        } catch (MyException e) { // å¤„ç†è‡ªå®šä¹‰å¼‚å¸¸
+            System.out.println(e.getMessage()); // è¾“å‡ºå¼‚å¸¸ä¿¡æ¯
+        } catch (ArithmeticException e) { // å¤„ç†ArithmeticExceptionå¼‚å¸¸
+            System.out.println("é™¤æ•°ä¸èƒ½ä¸º0"); // è¾“å‡ºæç¤ºä¿¡æ¯
+        } catch (Exception e) { // å¤„ç†å…¶ä»–å¼‚å¸¸
+            System.out.println("ç¨‹åºå‘ç”Ÿäº†å…¶ä»–çš„å¼‚å¸¸"); // è¾“å‡ºæç¤ºä¿¡æ¯
+        }
+    }
 
 }
 
-class MyException extends Exception { // ´´½¨×Ô¶¨ÒåÒì³£Àà
-	String message; // ¶¨ÒåStringÀàĞÍ±äÁ¿
+class MyException extends Exception { // åˆ›å»ºè‡ªå®šä¹‰å¼‚å¸¸ç±»
+    String message; // å®šä¹‰Stringç±»å‹å˜é‡
 
-	public MyException(String ErrorMessagr) { // ¸¸Àà·½·¨
-		message = ErrorMessagr;
-	}
+    public MyException(String ErrorMessagr) { // çˆ¶ç±»æ–¹æ³•
+        message = ErrorMessagr;
+    }
 
-	public String getMessage() { // ¸²¸ÇgetMessage()·½·¨
-		return message;
-	}
+    public String getMessage() { // è¦†ç›–getMessage()æ–¹æ³•
+        return message;
+    }
 }

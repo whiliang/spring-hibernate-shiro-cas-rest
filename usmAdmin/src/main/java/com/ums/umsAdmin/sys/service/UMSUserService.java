@@ -10,92 +10,92 @@ import com.ums.umsAdmin.sys.util.PageModel;
 import com.ums.umsAdmin.sys.vo.UMSUserVo;
 
 public interface UMSUserService {
-	/**
-	 * Í¨¹ıÓÃ»§idÈ¡µÃÓÃ»§
-	 * @param id
-	 * @return UMSUser
-	 */
-	public UMSUser findUserById(Long id);
-	
-	
-	/**
-	 * Í¨¹ıÓÃ»§UUIDÈ¡µÃÓÃ»§
-	 * @param UUID
-	 * @return UMSUser
-	 */
-	public UMSUser findUserByUUID(String UUID);
-	/**
-	 * Í¨¹ıÓÃ»§ĞÕÃûÈ¡µÃÓÃ»§
-	 * @param name
-	 * @return UMSUser
-	 */
-	public UMSUser findUserByName(String name);
-	/**
-	 * È¡µÃËùÓĞÓÃ»§
-	 * @return UMSUsers' list
-	 */
-	public List<UMSUser> findAll();
-	/**
-	 * Í¨¹ıÓÃ»§idÉ¾³ı¸ÃÓÃ»§
-	 * @param id
-	 */
-	public void deleteUser(Long id);
-	/**
-	 * Ìí¼ÓÓÃ»§
-	 * @param userForm ÓÃ»§±íµ¥Ìî³äÊı¾İ
-	 * @return user's id
-	 */
-	public Long addUser(UMSUserForm userForm);
-	/**
-	 * ¸üĞÂÓÃ»§
-	 * @param userForm
-	 */
-	public void updateUser(UMSUserForm userForm);
-	/**
-	 * ÅĞ¶ÏÓÃ»§ÃûÊÇ·ñ´æÔÚ
-	 * @param userName
-	 * @return 
-	 */
-	public boolean isExisted(String userName);
-	
-	/**
-	 * ÅĞ¶ÏÓÃ»§ÃûÊÇ·ñ´æÔÚ
-	 * @param userId
-	 *  @return 
-	 */
-	public boolean isExisted(Long userId);
-	/**
-	 * ²éÑ¯ÓÃ»§£¬·µ»Ø·ÖÒ³ÓÃ»§Êı¾İ
-	 * @param queryUserForm
-	 * @return PageModel ÄÚº¬¸ÄÒ³µÄÓÃ»§ÁĞ±í
-	 */
-	public PageModel<UMSUserVo> pageQueryOfVo(QueryUserForm queryUserForm);
-	/**
-	 * ²éÑ¯ÓÃ»§Ê±Ìá¹©ÁªÏëÌáÊ¾¹¦ÄÜ
-	 * @param input
-	 * @return
-	 */
-	public Set<String> searchUserHints(String input);
-	/**
-	 * ¸ü¸ÄÓÃ»§ÃÜÂë
-	 * @param userForm
-	 */
-	public void changeUserPwd(UMSUserForm userForm);
-	
-	/**
-	 * ÉèÖÃÃÜÂë
-	 * @param userForm
-	 */
-	public void setPwd(UMSUserForm userForm);
-	
-	/**
-	 * Íü¼ÇÃÜÂë
-	 * @param userForm
-	 */
-	public void forgetPwd(UMSUserForm userForm);	
-	
-	/** ¸üĞÂµÇÂ¼Ê±¼ä
-	 * @param userId
-	 */
-	public void updateLoginTime(Long userId);
+    /**
+     * é€šè¿‡ç”¨æˆ·idå–å¾—ç”¨æˆ·
+     * @param id
+     * @return UMSUser
+     */
+    public UMSUser findUserById(Long id);
+
+
+    /**
+     * é€šè¿‡ç”¨æˆ·UUIDå–å¾—ç”¨æˆ·
+     * @param UUID
+     * @return UMSUser
+     */
+    public UMSUser findUserByUUID(String UUID);
+    /**
+     * é€šè¿‡ç”¨æˆ·å§“åå–å¾—ç”¨æˆ·
+     * @param name
+     * @return UMSUser
+     */
+    public UMSUser findUserByName(String name);
+    /**
+     * å–å¾—æ‰€æœ‰ç”¨æˆ·
+     * @return UMSUsers' list
+     */
+    public List<UMSUser> findAll();
+    /**
+     * é€šè¿‡ç”¨æˆ·idåˆ é™¤è¯¥ç”¨æˆ·
+     * @param id
+     */
+    public void deleteUser(Long id);
+    /**
+     * æ·»åŠ ç”¨æˆ·
+     * @param userForm ç”¨æˆ·è¡¨å•å¡«å……æ•°æ®
+     * @return user's id
+     */
+    public Long addUser(UMSUserForm userForm);
+    /**
+     * æ›´æ–°ç”¨æˆ·
+     * @param userForm
+     */
+    public void updateUser(UMSUserForm userForm);
+    /**
+     * åˆ¤æ–­ç”¨æˆ·åæ˜¯å¦å­˜åœ¨
+     * @param userName
+     * @return
+     */
+    public boolean isExisted(String userName);
+
+    /**
+     * åˆ¤æ–­ç”¨æˆ·åæ˜¯å¦å­˜åœ¨
+     * @param userId
+     *  @return
+     */
+    public boolean isExisted(Long userId);
+    /**
+     * æŸ¥è¯¢ç”¨æˆ·ï¼Œè¿”å›åˆ†é¡µç”¨æˆ·æ•°æ®
+     * @param queryUserForm
+     * @return PageModel å†…å«æ”¹é¡µçš„ç”¨æˆ·åˆ—è¡¨
+     */
+    public PageModel<UMSUserVo> pageQueryOfVo(QueryUserForm queryUserForm);
+    /**
+     * æŸ¥è¯¢ç”¨æˆ·æ—¶æä¾›è”æƒ³æç¤ºåŠŸèƒ½
+     * @param input
+     * @return
+     */
+    public Set<String> searchUserHints(String input);
+    /**
+     * æ›´æ”¹ç”¨æˆ·å¯†ç 
+     * @param userForm
+     */
+    public void changeUserPwd(UMSUserForm userForm);
+
+    /**
+     * è®¾ç½®å¯†ç 
+     * @param userForm
+     */
+    public void setPwd(UMSUserForm userForm);
+
+    /**
+     * å¿˜è®°å¯†ç 
+     * @param userForm
+     */
+    public void forgetPwd(UMSUserForm userForm);
+
+    /** æ›´æ–°ç™»å½•æ—¶é—´
+     * @param userId
+     */
+    public void updateLoginTime(Long userId);
 }

@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ehcache>
-	<diskStore path="java.io.tmpdir/paxAdmin-cache"/>
-	<defaultCache
-	        maxElementsInMemory="10000"
-	        eternal="false"
-	        timeToLiveSeconds="600"
-	        overflowToDisk="true"
-	        diskPersistent="false"
-	        />
+    <diskStore path="java.io.tmpdir/paxAdmin-cache"/>
+    <defaultCache
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToLiveSeconds="600"
+            overflowToDisk="true"
+            diskPersistent="false"
+    />
+    <cache name="org.hibernate.cache.internal.StandardQueryCache"
+           maxElementsInMemory="5"
+           eternal="false"
+           timeToLiveSeconds="120"
+           overflowToDisk="true" />
+
+    <cache name="org.hibernate.cache.spi.UpdateTimestampsCache"
+           maxElementsInMemory="5000"
+           eternal="true"
+           overflowToDisk="true"/>
 </ehcache>

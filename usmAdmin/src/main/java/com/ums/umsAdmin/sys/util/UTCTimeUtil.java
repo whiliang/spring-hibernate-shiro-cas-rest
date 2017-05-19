@@ -7,51 +7,51 @@ import java.util.Calendar;
 import java.util.Date;
 
 public final class UTCTimeUtil {
-	private static DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    private static DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
-	/**
-	 * µÃµ½UTCÊ±¼ä£¬ÀàĞÍÎª×Ö·û´®£¬¸ñÊ½Îª"yyyy-MM-dd HH:mm"<br />
-	 * Èç¹û»ñÈ¡Ê§°Ü£¬·µ»Ønull
-	 * 
-	 * @return
-	 */
-	public static String getUTCTimeStr() {
-		StringBuffer UTCTimeBuffer = new StringBuffer();
-		// 1¡¢È¡µÃ±¾µØÊ±¼ä£º
-		Calendar cal = Calendar.getInstance();
-		// 2¡¢È¡µÃÊ±¼äÆ«ÒÆÁ¿£º
-		int zoneOffset = cal.get(java.util.Calendar.ZONE_OFFSET);
-		// 3¡¢È¡µÃÏÄÁîÊ±²î£º
-		int dstOffset = cal.get(java.util.Calendar.DST_OFFSET);
-		// 4¡¢´Ó±¾µØÊ±¼äÀï¿Û³ıÕâĞ©²îÁ¿£¬¼´¿ÉÒÔÈ¡µÃUTCÊ±¼ä£º
-		cal.add(java.util.Calendar.MILLISECOND, -(zoneOffset + dstOffset));
-		int year = cal.get(Calendar.YEAR);
-		int month = cal.get(Calendar.MONTH) + 1;
-		int day = cal.get(Calendar.DAY_OF_MONTH);
-		int hour = cal.get(Calendar.HOUR_OF_DAY);
-		int minute = cal.get(Calendar.MINUTE);
-		
-		UTCTimeBuffer.append(year).append("-").append(month).append("-")
-				.append(day);
-		UTCTimeBuffer.append(" ").append(hour).append(":").append(minute);
-		try {
-			format.parse(UTCTimeBuffer.toString());
-			return UTCTimeBuffer.toString();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public static Date getUTCTime() {
-		// 1¡¢È¡µÃ±¾µØÊ±¼ä£º
-		Calendar cal = Calendar.getInstance();
-		// 2¡¢È¡µÃÊ±¼äÆ«ÒÆÁ¿£º
-		int zoneOffset = cal.get(java.util.Calendar.ZONE_OFFSET);
-		// 3¡¢È¡µÃÏÄÁîÊ±²î£º
-		int dstOffset = cal.get(java.util.Calendar.DST_OFFSET);
-		// 4¡¢´Ó±¾µØÊ±¼äÀï¿Û³ıÕâĞ©²îÁ¿£¬¼´¿ÉÒÔÈ¡µÃUTCÊ±¼ä£º
-		cal.add(java.util.Calendar.MILLISECOND, -(zoneOffset + dstOffset));
-		return cal.getTime();
-	}
+    /**
+     * å¾—åˆ°UTCæ—¶é—´ï¼Œç±»å‹ä¸ºå­—ç¬¦ä¸²ï¼Œæ ¼å¼ä¸º"yyyy-MM-dd HH:mm"<br />
+     * å¦‚æœè·å–å¤±è´¥ï¼Œè¿”å›null
+     *
+     * @return
+     */
+    public static String getUTCTimeStr() {
+        StringBuffer UTCTimeBuffer = new StringBuffer();
+        // 1ã€å–å¾—æœ¬åœ°æ—¶é—´ï¼š
+        Calendar cal = Calendar.getInstance();
+        // 2ã€å–å¾—æ—¶é—´åç§»é‡ï¼š
+        int zoneOffset = cal.get(java.util.Calendar.ZONE_OFFSET);
+        // 3ã€å–å¾—å¤ä»¤æ—¶å·®ï¼š
+        int dstOffset = cal.get(java.util.Calendar.DST_OFFSET);
+        // 4ã€ä»æœ¬åœ°æ—¶é—´é‡Œæ‰£é™¤è¿™äº›å·®é‡ï¼Œå³å¯ä»¥å–å¾—UTCæ—¶é—´ï¼š
+        cal.add(java.util.Calendar.MILLISECOND, -(zoneOffset + dstOffset));
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH) + 1;
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        int hour = cal.get(Calendar.HOUR_OF_DAY);
+        int minute = cal.get(Calendar.MINUTE);
+
+        UTCTimeBuffer.append(year).append("-").append(month).append("-")
+                .append(day);
+        UTCTimeBuffer.append(" ").append(hour).append(":").append(minute);
+        try {
+            format.parse(UTCTimeBuffer.toString());
+            return UTCTimeBuffer.toString();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static Date getUTCTime() {
+        // 1ã€å–å¾—æœ¬åœ°æ—¶é—´ï¼š
+        Calendar cal = Calendar.getInstance();
+        // 2ã€å–å¾—æ—¶é—´åç§»é‡ï¼š
+        int zoneOffset = cal.get(java.util.Calendar.ZONE_OFFSET);
+        // 3ã€å–å¾—å¤ä»¤æ—¶å·®ï¼š
+        int dstOffset = cal.get(java.util.Calendar.DST_OFFSET);
+        // 4ã€ä»æœ¬åœ°æ—¶é—´é‡Œæ‰£é™¤è¿™äº›å·®é‡ï¼Œå³å¯ä»¥å–å¾—UTCæ—¶é—´ï¼š
+        cal.add(java.util.Calendar.MILLISECOND, -(zoneOffset + dstOffset));
+        return cal.getTime();
+    }
 }

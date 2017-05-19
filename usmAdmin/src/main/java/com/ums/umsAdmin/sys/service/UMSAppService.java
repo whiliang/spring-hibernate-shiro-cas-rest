@@ -5,17 +5,19 @@ import java.util.List;
 import com.ums.umsAdmin.sys.model.UMSApp;
 
 public interface UMSAppService {
-	/**
-	 * »ñÈ¡ËùÓĞÓ¦ÓÃ
-	 * @return list<UMSApp>
-	 */
-	public List<UMSApp> findAll();
-	
-	/**
-	 * Í¨¹ıÓÃ»§idÈ¡µÃÓ¦ÓÃ
-	 * @param id
-	 * @return UMSApp
-	 */
-	public UMSApp findAppById(Long id);
+    /**
+     * è·å–æ‰€æœ‰åº”ç”¨
+     *
+     * @return list<UMSApp>
+     */
+    public List<UMSApp> findAll();
+
+    /**
+     * é€šè¿‡ç”¨æˆ·idå–å¾—åº”ç”¨
+     *
+     * @param id
+     * @return UMSApp
+     */
+    public UMSApp findAppById(Long id);
 
 }

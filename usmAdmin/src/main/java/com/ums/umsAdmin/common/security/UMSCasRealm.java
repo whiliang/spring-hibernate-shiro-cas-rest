@@ -33,8 +33,8 @@ public class UMSCasRealm extends AuthorizingRealm {
 		String loginName = principal.getName();
 		
 		UMSUser user = userService.findUserByName(loginName);
-//		List<String> list = new ArrayList<String>();
 //		list.add("administrator");
+//		List<String> list = new ArrayList<String>();
 //		List<String> testList;
 //		try {
 //			testList = RESTClient.getPermissionsName(list);

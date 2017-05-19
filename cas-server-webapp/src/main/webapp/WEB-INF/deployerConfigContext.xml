@@ -77,7 +77,7 @@
                    | If more than one instance of the same handler class is configured, you must explicitly
                    | set its name to something other than its default name (typically the simple class name).
                    -->
-                   
+
                 <entry key-ref="dbAuthHandler" value-ref="primaryPrincipalResolver" />
             </map>
         </constructor-arg>

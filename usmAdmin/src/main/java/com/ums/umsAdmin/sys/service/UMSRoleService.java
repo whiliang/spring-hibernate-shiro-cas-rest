@@ -10,70 +10,70 @@ import com.ums.umsAdmin.sys.util.PageModel;
 import com.ums.umsAdmin.sys.vo.UMSRoleVo;
 
 public interface UMSRoleService {
-	/**
-	 * ²éÑ¯³ıdefaultÒÔÍâµÄËùÓĞ½ÇÉ«
-	 * @return List<UMSRole> ²»°üº¬default½ÇÉ«
-	 */
-	public List<UMSRole> findAllNoDefault();
-	
-	/**
-	 * ²éÑ¯½ÇÉ«£¬·µ»Ø·ÖÒ³ÓÃ»§Êı¾İ
-	 * @param queryRoleForm
-	 * @return PageModel ÄÚº¬¸ÄÒ³µÄÓÃ»§ÁĞ±í
-	 */
-	public PageModel<UMSRoleVo> pageQueryOfVo(QueryRoleForm queryRoleForm);
-	
-	/**
-	 * ²éÑ¯ÓÃ»§Ê±Ìá¹©ÁªÏëÌáÊ¾¹¦ÄÜ
-	 * @param input
-	 * @return
-	 */
-	public Set<String> searchUserHints(String input);
-	
-	/**
-	 * Ìí¼Ó½ÇÉ«
-	 * @param roleForm ½ÇÉ«±íµ¥Ìî³äÊı¾İ
-	 * @return roleId
-	 */
-	public Long addRole(UMSRoleForm roleForm);
-	
-	/**
-	 * Í¨¹ıÓÃ»§idÈ¡µÃ½ÇÉ«
-	 * @param id
-	 * @return UMSRole
-	 */
-	public UMSRole findRoleById(Long id);
-	
-	/**
-	 * Í¨¹ı½ÇÉ«ÃûÈ¡µÃ½ÇÉ«
-	 * @param name
-	 * @return UMSRole
-	 */
-	public UMSRole findRoleByName(String name);
-	
-	/**
-	 * Í¨¹ı½ÇÉ«idÉ¾³ı¸Ã½ÇÉ«
-	 * @param id
-	 */
-	public void deleteRole(Long id);
-	
-	/**
-	 * ÅĞ¶Ï½ÇÉ«ÃûÊÇ·ñ´æÔÚ
-	 * @param roleId
-	 *  @return 
-	 */
-	public boolean isExisted(Long roleId);
-	
-	/**
-	 * ÅĞ¶ÏÍ¬Ó¦ÓÃÏÂ½ÇÉ«ÃûÊÇ·ñ´æÔÚ
-	 * @param roleName,appId
-	 *  @return 
-	 */
-	public boolean checkRoleName(String roleName,Long appId );
-	
-	/**
-	 * ¸üĞÂ½ÇÉ«
-	 * @param roleForm
-	 */
-	public void updateRole(UMSRoleForm roleForm);
+    /**
+     * æŸ¥è¯¢é™¤defaultä»¥å¤–çš„æ‰€æœ‰è§’è‰²
+     * @return List<UMSRole> ä¸åŒ…å«defaultè§’è‰²
+     */
+    public List<UMSRole> findAllNoDefault();
+
+    /**
+     * æŸ¥è¯¢è§’è‰²ï¼Œè¿”å›åˆ†é¡µç”¨æˆ·æ•°æ®
+     * @param queryRoleForm
+     * @return PageModel å†…å«æ”¹é¡µçš„ç”¨æˆ·åˆ—è¡¨
+     */
+    public PageModel<UMSRoleVo> pageQueryOfVo(QueryRoleForm queryRoleForm);
+
+    /**
+     * æŸ¥è¯¢ç”¨æˆ·æ—¶æä¾›è”æƒ³æç¤ºåŠŸèƒ½
+     * @param input
+     * @return
+     */
+    public Set<String> searchUserHints(String input);
+
+    /**
+     * æ·»åŠ è§’è‰²
+     * @param roleForm è§’è‰²è¡¨å•å¡«å……æ•°æ®
+     * @return roleId
+     */
+    public Long addRole(UMSRoleForm roleForm);
+
+    /**
+     * é€šè¿‡ç”¨æˆ·idå–å¾—è§’è‰²
+     * @param id
+     * @return UMSRole
+     */
+    public UMSRole findRoleById(Long id);
+
+    /**
+     * é€šè¿‡è§’è‰²åå–å¾—è§’è‰²
+     * @param name
+     * @return UMSRole
+     */
+    public UMSRole findRoleByName(String name);
+
+    /**
+     * é€šè¿‡è§’è‰²idåˆ é™¤è¯¥è§’è‰²
+     * @param id
+     */
+    public void deleteRole(Long id);
+
+    /**
+     * åˆ¤æ–­è§’è‰²åæ˜¯å¦å­˜åœ¨
+     * @param roleId
+     *  @return
+     */
+    public boolean isExisted(Long roleId);
+
+    /**
+     * åˆ¤æ–­åŒåº”ç”¨ä¸‹è§’è‰²åæ˜¯å¦å­˜åœ¨
+     * @param roleName,appId
+     *  @return
+     */
+    public boolean checkRoleName(String roleName,Long appId );
+
+    /**
+     * æ›´æ–°è§’è‰²
+     * @param roleForm
+     */
+    public void updateRole(UMSRoleForm roleForm);
 }

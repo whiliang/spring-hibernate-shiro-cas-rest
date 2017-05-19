@@ -144,5 +144,29 @@
 	</dependencies>
 	<build>
 		<finalName>umsRestService</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.3.8.v20160314</version>
+                <configuration>
+                    <scanIntervalSeconds>0</scanIntervalSeconds>
+                    <webApp>
+                        <contextPath>/umsRestService</contextPath>
+                    </webApp>
+                    <httpConnector>
+                        <port>9010</port>
+                        <idleTimeout>60000</idleTimeout>
+                    </httpConnector>
+                    <reload>automatic</reload>
+                    <systemProperties>
+                        <systemProperty>
+                            <name>org.mortbay.util.URI.charset</name>
+                            <value>UTF-8</value>
+                        </systemProperty>
+                    </systemProperties>
+                </configuration>
+            </plugin>
+        </plugins>
 	</build>
 </project>
