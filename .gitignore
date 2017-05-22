@@ -1,0 +1,6 @@
+.idea/
+cas-server-webapp/cas-server-webapp.iml
+cas-server-webapp/cas.log
+cas-server-webapp/perfStats.log
+cas-server-webapp/target/
+
